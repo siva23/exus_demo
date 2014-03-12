@@ -1,0 +1,26 @@
+<%if @patient.payments.count == 0%>
+  <h1>No records found</h1>
+<%else%>
+  <table>
+    <tr>
+      <th>Card Name</th>
+      <th>Card number</th>
+      <th>Expired Date</th>
+      <th>Billing Address</th>
+      <th>Billing City</th>
+      <th>Billing State</th>
+      <th>Billing zipcode</th>
+    </tr>
+  <%@patient.payments.each do|e|%>
+    <tr>
+      <td><%=e.cname%></td>
+      <td><%=e.cnum%></td>
+      <td><%=e.expd%></td>
+      <td><%=e.biladd%></td>
+      <td><%=e.bilcity%></td>
+      <td><%=e.bilstate%></td>
+      <td><%=e.bilzip%></td>
+    </tr>
+  <%end%>
+  </table>
+<%end%>

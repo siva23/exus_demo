@@ -1,0 +1,18 @@
+<%if @patient.insurances.count == 0%>
+  <h1>No records found</h1>
+<%else%>
+  <table>
+    <tr>
+      <th>Insurance Name</th>
+      <th>Member number</th>
+      <th>Group number</th>
+    </tr>
+  <%@patient.insurances.each do|e|%>
+    <tr>
+      <td><%=e.iname%></td>
+      <td><%=e.memnum%></td>
+      <td><%=e.grpnum%></td>
+    </tr>
+  <%end%>
+  </table>
+<%end%>

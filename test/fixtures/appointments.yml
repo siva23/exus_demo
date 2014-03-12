@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  aptdoc: MyString
+  aptreason: MyString
+  aptdate: 2014-03-07
+  apttime: MyString
+  comments: MyText
+
+two:
+  aptdoc: MyString
+  aptreason: MyString
+  aptdate: 2014-03-07
+  apttime: MyString
+  comments: MyText

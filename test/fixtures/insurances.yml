@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  iname: MyString
+  memnum: MyString
+  grpnum: MyString
+
+two:
+  iname: MyString
+  memnum: MyString
+  grpnum: MyString

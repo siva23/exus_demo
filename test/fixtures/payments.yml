@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cname: MyString
+  cnum: MyString
+  expd: 2014-03-07
+  biladd: MyString
+  bilcity: MyString
+  bilstate: MyString
+  bilzip: MyString
+
+two:
+  cname: MyString
+  cnum: MyString
+  expd: 2014-03-07
+  biladd: MyString
+  bilcity: MyString
+  bilstate: MyString
+  bilzip: MyString
