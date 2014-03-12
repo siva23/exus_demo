@@ -1,0 +1,73 @@
+/* The Form*/
+
+#autocompleteForm {
+}
+#s {
+	vertical-align: middle;
+}
+input:focus {
+	outline: none;
+}
+#submitSearch {
+}
+/* Styling for Autocomplete */
+
+/* CSS Document */
+.ac_results {
+	overflow: hidden;
+	z-index: 99999;
+	margin: 0;
+	padding: 0;
+}
+.ac_results ul {
+	list-style-position: outside;
+	list-style: none;
+	background: #FFF;
+	margin: 0;
+	padding: 2px;
+	border: 2px solid #259cbd;
+}
+.ac_results li {
+	cursor: pointer;
+	display: block;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 2px;
+}
+.ac_results li:first-child {
+	border: 0;
+}
+.ac_loading {
+}
+.ac_over {
+	background-color: #d0d3d5;
+	color: #000
+}
+.ac_over a:hover {
+	color: #000
+}
+.ac_results li a {
+	display: block;
+	overflow: auto;
+	padding: 0;
+	color: #2c2c2c;
+}
+.ac_results li a img {
+	width: 40px;
+	height: auto;
+	max-height: 40px;
+	float: left;
+	margin-right: 5px;
+	border: 2px solid #259cbd;
+}
+div.title {
+	font-size: 14px;
+	padding: 2px 0 0;
+	display: block;
+}
+span.text {
+	font-size: 10px;
+	padding: 8px 0 0;
+	display: block;
+}

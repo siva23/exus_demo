@@ -1,0 +1,126 @@
+/* ----------------CONTENT STYLES---------------- */
+.main_content {
+	background: url(../assets/content_bg.png) no-repeat center 0;
+	width: 100%;
+	margin: -97px 0 0 0;
+	height: 439px;
+	float: left;
+}
+.content {
+	width: 815px;
+	height: auto;
+	margin: 0 auto;
+	padding: 105px 0 0 0;
+}
+/* ----------------LEFT_MENU STYLES & RIGHT_MENU STYLESRIGHT_MENU STYLES---------------- */
+.left_menu {
+	float: left;
+	width: 100px;
+	position: relative;
+	margin: 15px 0 0;
+}
+.left_menu ul li.video {
+	background: url(../assets/menu_bg.png) no-repeat 0 0;
+	left: 30px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 74px;
+}
+.left_menu ul li.news {
+	background: url(../assets/menu_bg.png) no-repeat 0 0;
+	left: 0px;
+	position: absolute;
+	text-align: center;
+	top: 65px;
+	width: 74px;
+}
+.left_menu ul li.blog {
+	background: url(../assets/menu_bg.png) no-repeat 0 0;
+	left: 30px;
+	position: absolute;
+	text-align: center;
+	top: 130px;
+	width: 74px;
+}
+.right_menu {
+	float: right;
+	width: 100px;
+	margin-right: 10px;
+}
+.right_menu ul li.help {
+	background: url(../assets/help_bg2.png) no-repeat 0 0;
+	margin: 122px 0 0 22px;
+	padding: 0;
+	text-align: center;
+	width: 93px;
+}
+.left_menu ul li a, .right_menu ul li a {
+	color: #959595;
+	text-transform: uppercase;
+	display: inline-block;
+	font-size: 13px;
+	line-height: 30px;
+}
+.left_menu ul li.video a, .left_menu ul li.news a, .left_menu ul li.blog a {
+	padding: 23px 0;
+}
+.right_menu ul li.help a {
+	padding: 33px 0;
+}
+.left_menu ul li a:hover {
+	color: #15a7dc;
+}
+.right_menu ul li a:hover {
+	color: #79bd54;
+}
+.mid_column {
+	left: 259px;
+	position: absolute;
+	top: 98px;
+	width: 370px;
+}
+.mid_column .video_element, .mid_column .video_element2 {
+	background: url(../assets/video-frame_bg.png) no-repeat 0 0;
+	float: left;
+	height: 89px;
+	padding: 10px 0 0 6px;
+	position: relative;
+	width: 152px;
+}
+.mid_column .video_element2 {
+	float: right;
+}
+.mid_column .video_element span, .mid_column .video_element2 span {
+	background: url(../assets/video_play_img.png) no-repeat 0 0;
+	height: 65px;
+	left: 51px;
+	position: absolute;
+	top: 24px;
+	width: 66px;
+}
+/* ----------------VIDEO POP UP STYLES---------------- */
+.element_to_pop_up2, .element_to_pop_up3 {
+	background: url(../assets/video-popup_bg.png) no-repeat 0 0;
+	color: #000;
+	display: none;
+	height: 300px;
+	padding: 20px 0;
+	width: 592px;
+	position: relative;
+	z-index: 9999;
+	text-align: center;
+}
+.b-close2 {
+	background: url(../assets/close_bg.png) no-repeat 0 0;
+	bottom: -17px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 24px;
+	height: 13px;
+	padding: 15px 0;
+	position: absolute;
+	right: -18px;
+	text-align: center;
+	width: 42px;
+}

@@ -1,0 +1,214 @@
+@font-face {
+	font-family: 'Century Gothic';
+	src: url('../assets/gothic.eot');
+	src: url('../assets/gothic.eot') format('embedded-opentype'),  url('../assets/gothic.woff') format('woff'),  url('../assets/gothic.ttf') format('truetype'),  url('../assets/gothic.svg#CenturyGothicRegular') format('svg');
+}
+body {
+	background: #FFF;
+	font-size: 12px;
+	line-height: 13px;
+	color: #000000;
+	font-family: "Century Gothic", Arial;
+}
+
+::-webkit-input-placeholder {
+ font-family: "Century Gothic", Arial;
+ text-transform: uppercase;
+}
+:-moz-placeholder {
+ font-family: "Century Gothic", Arial;
+}
+.wrapper {
+	background: url(../assets/wrapper_bg.jpg) repeat-x center 0;
+	width: 100%;
+	overflow: hidden;
+}
+.wrapper_in {
+	width: 100%;
+	border-top: 2px solid #a3a6aa;
+	margin: 15px 0;
+	padding: 5px 0;
+}
+/* ----------------HEADER STYLES---------------- */
+.header {
+	width: 880px;
+	margin: 0 auto;
+	position: relative;
+}
+.logo {
+	background: url(../assets/logo_bg.png) no-repeat 0 0;
+	height: 198px;
+	left: -143px;
+	padding: 30px 0 0;
+	position: absolute;
+	text-align: center;
+	top: -20px;
+	width: 360px;
+}
+.payoff {
+	float: left;
+	margin: 0;
+	text-align: right;
+	width: 540px;
+}
+.payoff span {
+	font-size: 20px;
+}
+.login_column {
+	background: url(../assets/top-right_bg.png) no-repeat 0 0;
+	float: right;
+	height: 184px;
+	margin: 10px 0 0;
+	position: relative;
+	text-align: center;
+	width: 290px;
+	z-index: 1;
+}
+.login_column ul {
+	margin: 0 auto;
+	padding: 50px 0 0 3px;
+	width: auto;
+}
+.login_column ul li {
+	float: left;
+	text-align: center;
+	width: 290px;
+}
+.login_column ul li a {
+	color: #959595;
+	font-size: 24px;
+	line-height: 24px;
+	text-transform: capitalize;
+	-moz-text-shadow: 0 0 3px #afafaf;
+	-webkit-text-shadow: 0 0 3px #afafaf;
+	-o-text-shadow: 0 0 3px #afafaf;
+	text-shadow: 0 0 3px #afafaf;
+}
+.login_column ul li a:hover {
+	color: #7F7D7D;
+}
+.login_column ul li span {
+	color: #959595;
+	font-size: 14px;
+	font-style: italic;
+	line-height: 16px;
+	float: right;
+	margin: 4px 88px 0 0;
+	text-align: right;
+}
+/* ----------------BOTTOM CONTENT STYLES---------------- */
+.bottom_content {
+	width: 100%;
+	margin: -96px 0 0 0;
+	float: left;
+}
+.bottom_content_inner {
+	width: 880px;
+	margin: 0 auto;
+	position: relative;
+}
+.left_column {
+	background: url(../assets/left_column_bg.png) no-repeat 0 0;
+	float: left;
+	height: 24px;
+	padding: 80px 0;
+	padding-left: 62px;
+	width: 228px;
+	text-align: left;
+}
+.right_column {
+	background: url(../assets/right_column_bg.png) no-repeat 0 0;
+	float: right;
+	height: 34px;
+	padding: 75px 0;
+	padding-right: 46px;
+	text-align: right;
+	width: 244px;
+}
+.left_column a, .right_column a {
+	color: #959595;
+	font-size: 24px;
+	line-height: 26px;
+	text-transform: capitalize;
+	display: block;
+}
+.left_column a:hover, .right_column a:hover {
+	color: #7F7D7D;
+}
+.left_column span {
+	color: #cccbce;
+	display: block;
+	font-size: 16px;
+	font-style: italic;
+	margin: 6px 0 0;
+	text-align: left;
+}
+.right_column span {
+	color: #cccbce;
+	display: block;
+	font-size: 16px;
+	font-style: italic;
+	margin: 6px 0 0;
+	text-align: right;
+	line-height: 16px;
+}
+.search-area {
+	height: 28px;
+	width: 366px;
+	margin: 25px auto 0;
+}
+.search-area input {
+	background: url(../assets/search_bg.png) no-repeat 0 0;
+	padding: 7px 0 7px 46px;
+	text-transform: uppercase;
+	width: 330px;
+}
+/* ----------------FOOTER STYLES---------------- */
+.footer {
+	background: #ffffff;
+	width: 100%;
+	overflow: hidden;
+	padding: 5px 0 9px 0;
+}
+.footer_in {
+	width: 986px;
+	margin: 0 auto;
+}
+.footer_in ul.site_links {
+	float: left;
+	margin: 4px 0 0 10px;
+}
+.footer_in ul.site_links li {
+	float: left;
+	color: #7F7F7F;
+}
+.footer_in ul.site_links li a {
+	color: #7F7F7F;
+	text-transform: uppercase;
+	font-size: 13px;
+	line-height: 15px;
+}
+.footer_in ul.site_links li a:hover, .footer_in p a:hover {
+	text-decoration: underline;
+	color: #646464;
+}
+.footer_in p {
+	color: #959595;
+	font-size: 14px;
+	line-height: 15px;
+	margin: 0 0 0 10px;
+	padding-bottom: 0;
+}
+.footer_in p a {
+	color: #959595;
+	font-size: 12px;
+	line-height: 15px;
+}
+.footer_in ul.social_icons {
+	float: left;
+	margin: 0 0 1px 20px;
+}
+.footer_in ul.social_icons li {
+	float: left;
+	padding: 0 4px;
+}

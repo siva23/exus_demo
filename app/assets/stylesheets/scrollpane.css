@@ -1,0 +1,121 @@
+.jspContainer {
+	overflow: hidden;
+	position: relative;
+	width: 360px;
+	height: 180px;
+}
+.jspPane {
+	padding: 0;
+	position: absolute;
+	width: 345px;
+}
+.jspVerticalBar {
+	position: absolute;
+	top: 0;
+	right: 3px;
+	width: 11px;
+	height: 100%;
+	background: #c1c0c2;
+}
+.member-list .jspVerticalBar {
+	right: auto;
+	left: 3px;
+}
+.jspHorizontalBar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 17px;
+	background: #c1c0c2;
+}
+.jspCap {
+	display: none;
+}
+.jspHorizontalBar .jspCap {
+	float: left;
+}
+.jspTrack {
+	background: #c1c0c2;
+	position: relative;
+	z-index: 99;
+}
+.jspDrag {
+	background: #999999;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	border-radius: 10px;
+}
+.jspHorizontalBar .jspTrack, .jspHorizontalBar .jspDrag {
+	float: left;
+	height: 100%;
+}
+.jspArrow {
+	background: #f0f0f0;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+}
+.jspArrow.jspDisabled {
+	cursor: default;
+	background: #80808d;
+}
+.jspVerticalBar .jspArrow {
+	height: 17px;
+}
+.jspHorizontalBar .jspArrow {
+	width: 10px;
+	float: left;
+	height: 100%;
+}
+.jspVerticalBar .jspArrow:focus {
+	outline: none;
+}
+.jspArrow.jspArrowDown {
+	background: #c1c0c2 url(../assets/scroll-down.png) no-repeat 2px 8px;
+	
+}
+.jspArrow.jspArrowUp {
+	background: #c1c0c2 url(../assets/scroll-up.png) no-repeat 2px 5px;
+}
+.jspCorner {
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner {
+	margin: 0 -3px 0 0;
+}
+.fixed-div {
+	height: 210px;
+	overflow: auto;
+}
+.patient_column.fixed-div{
+	  height: 187px;
+}
+.provider_column.fixed-div {
+	height: 155px;
+	overflow: auto;
+}
+.timings.fixed-div {
+	height: 100px;
+	overflow: auto;
+}
+.current-insurance.fixed-div, .current-column.fixed-div {
+	height: 100px;
+}
+
+.scroll-div1{
+	height:112px;
+	overflow:auto;
+}
+.scroll-div2{
+	height:240px;
+	overflow:auto;
+	overflow-x:hidden !important;
+}

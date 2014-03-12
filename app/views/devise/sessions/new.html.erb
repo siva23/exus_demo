@@ -1,17 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>:: Exusmed ::</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<!--HTML Resets-->
+<%= stylesheet_link_tag "resets", media: "all", "data-turbolinks-track" => true %>
+<!--Home Stylesheet-->
+<%= stylesheet_link_tag "landingpage_styles", media: "all", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag "exusmed_styles", media: "all", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag "login_tabs", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery-1.9.1.js", "data-turbolinks-track" => true %>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="wrapper_in">
+    <div class="header">
+      <div class="logo"><%=link_to(image_tag("logo.png", :alt =>  "Logo"), root_path)%></div>
+      <div class="payoff"><%=image_tag("payoff-img.png", :alt =>  "payoff")%></div>
+      <div class="login_column">
+        <ul>
+          <li><%=link_to "Log-In/Register", "#", {:class => "my-button"}%></li>
+          <li><span>Register for Free</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="element_to_pop_up" style="display:none;">
+      <div id="htabs-outer"> 
+        <!--begin htab outer panels-->
+        <div id="vtabs"> 
+          <!--begin vtab menu-->
+          <ul class="svg">
+            <li><%=link_to "Member", "#vtab-1"%></li>
+            <li class="provider"><span></span><a href="#vtab-2"><img src="../assets/provider.png" alt="provider">Provider</a></li>
+          </ul>
+          <!--end vtab menu--> 
+          <!--begin vtab panels-->
+          <div id="vtab-1">
+            <div id="htabs-inner"> 
+              <!--begin htab inner panels-->
+              <div class="tabs-content">
+                <div id="Login">
+                  <input type="text" placeholder="username">
+                  <input type="password" placeholder="password">
+                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                  <%=link_to "Troubles logging in?", "#"%> </div>
+                <div id="Register">
+                  <input type="text" placeholder="username">
+                  <input type="text" placeholder="email">
+                  <input type="text" placeholder="mobile">
+                  <input type="password" placeholder="password">
+                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                  </div>
+              </div>
+              <!--end htab inner panels--> 
+              <!--begin htab inner menu-->
+              <ul class="tabs-inner">
+                <li><a href="#Login">Login</a><span></span></li>
+                <li class="register"><a href="#Register">Register</a><strong></strong></li>
+              </ul>
+              <!--end htab inner menu--> 
+            </div>
+          </div>
+          <div id="vtab-2">
+            <div id="htabs-inner2"> 
+              <!--begin htab inner panels-->
+              <div class="tabs-content">
+                <div id="Login2">
+                  <input type="text" placeholder="username">
+                  <input type="password" placeholder="password">
+                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                  <%=link_to "Troubles logging in?", "#"%> </div>
+                <div id="Register2">
+                  <input type="text" placeholder="username">
+                  <input type="text" placeholder="email">
+                  <input type="text" placeholder="mobile">
+                  <input type="password" placeholder="password">
+                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                  </div>
+              </div>
+              <!--end htab inner panels--> 
+              <!--begin htab inner menu-->
+              <ul class="tabs-inner">
+                <li><a href="#Login2">Login</a><span></span></li>
+                <li class="register"><a href="#Register2">Register</a><strong></strong></li>
+              </ul>
+              <!--end htab inner menu--> 
+            </div>
+          </div>
+          <div class="tab_txt">
+            <p>By using our site and/or services you signify that you agree to our Terms and Conditions and Privacy Policy, and you confirm that you’re 18 yearsof age or older. </p>
+          </div>
+          <!--end vtab panels--> 
+        </div>
+        
+        <!--end htab outer panels--> 
+      </div>
+      <a class="b-close" title="close">X</a> </div>
+    <!-- header ends-->
+    <div class="clear"></div>
+    <div class="main_content">
+      <div class="content">
+        <div class="left_menu">
+          <ul>
+            <li class="video"><%=link_to "Videos"%></li>
+            <li class="news"><%=link_to "news"%></li>
+            <li class="blog"><%=link_to "blogs"%></li>
+          </ul>
+        </div>
+        <!-- left_menu ends-->
+        <div class="right_menu">
+          <ul>
+            <li class="help"><%=link_to "help"%></li>
+          </ul>
+        </div>
+        <!-- right_menu ends--> 
+      </div>
+      <!-- content ends--> 
+    </div>
+    <!-- main_content ends-->
+    <div class="bottom_content">
+      <div class="bottom_content_inner">
+        <div class="left_column"><%=link_to "our Programs"%></div>
+        <div class="mid_column">
+          <div class="video_element"><a href="#" class="my-button2"><img src="../assets/video_img1.png" alt=""><span></span></a></div>
+          <div class="video_element2"><a href="#" class="my-button3"><img src="../assets/video_img2.png" alt=""><span></span></a></div>
+        </div>
+        <div class="element_to_pop_up2" style="display:none;">
+          <iframe width="551" height="305" src="http://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>
+          <a class="b-close2" title="close">X</a> </div>
+        <!-- video_element1 pop up ends-->
+        <div class="element_to_pop_up3" style="display:none;">
+          <iframe width="551" height="305" src="http://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>
+          <a class="b-close2" title="close">X</a> </div>
+        <!-- video_element2 pop up ends-->
+        <div class="right_column"><%=link_to "about us"%></div>
+        <div class="clear"></div>
+        <div class="search-area">
+          <input type="text" placeholder="search">
+        </div>
+      </div>
+    </div>
+    <!-- bottom_column ends-->
+    <div class="clear"></div>
+  </div>
+  <!-- wrapper_in ends-->
+  
+  <div class="footer">
+    <div class="footer_in">
+      <ul class="site_links">
+        <li><%=link_to "Contact us"%></li>
+        <li>-</li>
+        <li><%=link_to "privacy policy"%></li>
+        <li>-</li>
+        <li><%=link_to "terms and conditions"%></li>
+        <li>-</li>
+        <li><%=link_to "security statement"%></li>
+        <li>-</li>
+        <li><%=link_to "faq"%></li>
+        <li>-</li>
+        <li><%=link_to "investment"%></li>
+        <li>-</li>
+        <li><%=link_to "news"%></li>
+        <li>-</li>
+        <li><%=link_to "videos"%></li>
+      </ul>
+      <ul class="social_icons">
+        <li><%= link_to(image_tag("fb_icon.png", :alt => ""), "#facebookpath", :title=>"Facebook")%></li>
+        <li><%= link_to(image_tag("yt_icon.png", :alt => ""), "#youtubepath", :title=>"Youtube")%></li>
+        <li><%= link_to(image_tag("instagram.png", :alt => ""), "#instagrampath", :title=>"Instagram")%></li>
+        <li><%= link_to(image_tag("twiter_icon.png", :alt => ""), "#twitterpath", :title=>"Twitter")%></li>
+        <li><%= link_to(image_tag("Stumble-icon.png", :alt => ""), "#Stumblepath", :title=>"Stumble")%></li>
+        <li><%= link_to(image_tag("linkedin_icon.png", :alt => ""), "#LinkedInpath", :title=>"Linked In")%></li>
+      </ul>
+      <div class="clear"></div>
+      <p> EXUSMED does not provide medical advice, diagnosis or treatment. See Additional Information.&copy; 2014 EXUSMED, INC <%=link_to "ALL RIGHTS RESERVED", "#path"%></p>
+    </div>
+  </div>
+  <!-- footer ends--> 
+</div>
+<!-- wrapper ends--> 
+<!-- popup --> 
+<%= javascript_include_tag "jquery.bpopup.min.js", "data-turbolinks-track" => true %>
+<%#=javascript_include_tag "jquery.easing.min.js" %>
+<!-- /popup --> 
+
+<script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+$(function () {
+    $("#htabs-outer").tabs();
+    $("#vtabs").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+    $("#vtabs > ul > li").removeClass("ui-corner-top").addClass("ui-corner-left");
+    $("#htabs-inner").tabs();
+	$("#htabs-inner2").tabs();
+	$("#htabs-inner3").tabs();
+
+});
+});//]]>  
+
+</script> 
+<%= javascript_include_tag "login_tabs.js", "data-turbolinks-track" => true %>
+<!--/tabs -->
+</body>
+</html>
+
+<!--The following data has to be inserted for devise fields
 <h2>Sign in</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<%#= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%#= f.label :email %><br />
+  <%#= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%#= f.label :password %><br />
+  <%#= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+  <%# if devise_mapping.rememberable? -%>
+    <div><%#= f.check_box :remember_me %> <%#= f.label :remember_me %></div>
+  <%# end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+  <div><%#= f.submit "Sign in" %></div>
+<%# end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>-->
