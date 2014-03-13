@@ -65,6 +65,7 @@ ActiveAdmin.register Doctor do
           @doctor.state = params[:doctor][:state]
           @doctor.zip = params[:doctor][:zip]
           @doctor.con = params[:doctor][:con]
+          @doctor.clnum = params[:doctor][:clnum]
           @doctor.user_id = @user.id
           @doctor.save(:validate => false)
             
@@ -86,7 +87,7 @@ ActiveAdmin.register Doctor do
        # This will render app/views/admin/doctors/payments.html.erb
   end
  
- permit_params :fname, :lname, :dob, :phone, :stadd, :city, :state, :zip, :con,:image,
+ permit_params :fname, :lname, :dob, :phone, :clname, :clstadd, :sex, :clcity, :state, :zip, :con,:image, :clnum,
     user_attributes: [:email, :mobile]
  
   show do|f|
