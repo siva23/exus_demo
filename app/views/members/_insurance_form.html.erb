@@ -1,0 +1,11 @@
+<%=fields_for Insurance.new do|f|%>
+    <table>
+     <tr>
+      <td colspan="2"><%=f.select :iname, ["Abhaya", "Aetna", "Health card", "BLUE CROSS AND BLUE SHIELD"], :placeholder => "Insurance", :html => {:class => "select-model-3", :id => "e4"}%></td>
+    </tr>
+    <tr>
+      <td><%=f.text_field :memnum, :placeholder => "Member number", :class => "input-1"%></td>
+      <td><%=f.text_field :grpnum, :placeholder => "Group number", :class => "input-1"%></td>
+    </tr>
+  </table>
+<%end%>

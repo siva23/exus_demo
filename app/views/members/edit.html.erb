@@ -1,0 +1,12 @@
+     <%= link_to "Log out", destroy_user_session_path %>
+
+ <%=form_for @member, :url => member_path, method: :patch do |f|%>
+  
+  <%= render "#{@member.current_step}_form", :f => f %>
+  <%if @member.last_step?%>
+    <%=f.submit "Submit"%>
+  <%else%>
+    <%=f.submit "Next", :name => "continue"%>
+  <%end%>
+  
+<%end%>

@@ -35,7 +35,7 @@
 	width: 100%;
 }
 .ui-tabs-vertical > .ui-tabs-nav {
-	background: url(../assets/login-buttons2.png) no-repeat 0 0;
+	background: url(login-buttons2.png) no-repeat 0 0;
 	overflow: hidden;
 	height: 33px;
 }
@@ -64,10 +64,10 @@
 	background: none;
 }
 .ui-tabs-vertical > .ui-tabs-nav > li.ui-tabs-active a {
-	background: url(../assets/login-buttons2.png) no-repeat 0 -33px;
+	background: url(login-buttons2.png) no-repeat 0 -33px;
 }
 .ui-tabs-vertical > .ui-tabs-nav > li.provider.ui-tabs-active a {
-	background: url(../assets/login-buttons2.png) no-repeat -181px -33px;
+	background: url(login-buttons2.png) no-repeat -181px -33px;
 }
 .ui-tabs-vertical > .ui-tabs-panel {
 	padding: 0;
@@ -132,10 +132,10 @@
 }
 .ui-tabs .tabs-inner.ui-tabs-nav li:hover, .ui-tabs .tabs-inner.ui-tabs-nav li.ui-tabs-active {
 	padding: 0;
-	background: url(../assets/login-buttons.png) no-repeat 0 -33px;
+	background: url(login-buttons.png) no-repeat 0 -33px;
 }
 .ui-tabs .tabs-inner.ui-tabs-nav li.register:hover, .ui-tabs .tabs-inner.ui-tabs-nav li.register.ui-tabs-active {
-	background: url(../assets/login-buttons.png) no-repeat -181px -33px;
+	background: url(login-buttons.png) no-repeat -181px -33px;
 	position: inherit;
 }
 .tabs-resp .ui-tabs .tabs-inner.ui-tabs-nav li {
@@ -188,11 +188,11 @@
 	text-align: center;
 }
 .tabs-inner {
-	background: url(../assets/login-buttons.png) no-repeat 0 0;
+	background: url(login-buttons.png) no-repeat 0 0;
 	overflow: hidden;
 }
 .tabs-inner span, .svg span {
-	background: url(../assets/or.png) no-repeat 0 0;
+	background: url(or.png) no-repeat 0 0;
 	height: 24px;
 	left: 93%;
 	position: absolute;
@@ -207,7 +207,7 @@
 }
 
 .tabs-content input {
-	background: url(../assets/username_bg.png) no-repeat 0 0;
+	background: url(username_bg.png) no-repeat 0 0;
 	color: #000000;
 	font-size: 20px;
 	line-height: 24px;
@@ -221,7 +221,7 @@
 	margin: 0 0 5px 0;
 }
 button.promotion-code {
-	background: url(../assets/enter-promotion-code_bg.png) no-repeat 0 0;
+	background: url(enter-promotion-code_bg.png) no-repeat 0 0;
 	color: #000000;
 	font-size: 10px;
 	line-height: 10px;
@@ -241,4 +241,9 @@ button.promotion-code {
 	text-decoration: underline;
 	font-size: 18px;
 	line-height: 18px;
+}
+.tabs-content input.login_button{
+	height:40px;
+	padding:0;
+	cursor:pointer;
 }

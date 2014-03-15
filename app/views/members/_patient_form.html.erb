@@ -1,0 +1,22 @@
+<table>
+    <tr>
+      <td><%=f.text_field :fname, :placeholder => "First Name", :class => "input-1"%></td>
+      <td><%=f.text_field :lname, :placeholder => "Last Name", :class => "input-1"%></td>
+    </tr>
+    <tr>
+      <td><%=f.date_field :dob, :placeholder => "Birthdate 0000/00/00", :class => "input-1"%></td>
+      <td><%=f.text_field :phone, :placeholder => "Phone", :class => "input-1"%></td>
+    </tr>
+    <tr>
+      <td><%=f.text_field :stadd, :placeholder => "Street Address", :class => "input-1"%></td>
+      <td><%=f.text_field :city, :placeholder => "City", :class => "input-1"%></td>
+    </tr>
+    <tr>
+      <td><%=f.text_field :state, :placeholder => "State", :class => "input-1"%></td>
+      <td><%=f.text_field :zip, :placeholder => "Zip", :class => "input-1"%></td>
+    </tr>
+    <tr>
+      <td><%=f.select :con, ["India", "United States of America", "China", "United Kingdom"], :placeholder => "Country", :class => "select-model-1"%></td>
+      <td></td>
+    </tr>
+</table>

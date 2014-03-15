@@ -44,16 +44,27 @@
               <!--begin htab inner panels-->
               <div class="tabs-content">
                 <div id="Login">
-                  <input type="text" placeholder="username">
-                  <input type="password" placeholder="password">
+                  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                 <%= f.email_field :email, :placeholder => "email" %>
+                 <%= f.password_field :password, :placeholder => "password" %>
+                  <!-- <input type="text" placeholder="username">
+                  <input type="password" placeholder="password"> -->
                   <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
-                  <%=link_to "Troubles logging in?", "#"%> </div>
+                  <%=link_to "Troubles logging in?", "#"%>
+                   <%= f.submit "Login", :class => "login_button"%>
+                  <% end %> </div>
                 <div id="Register">
-                  <input type="text" placeholder="username">
-                  <input type="text" placeholder="email">
-                  <input type="text" placeholder="mobile">
-                  <input type="password" placeholder="password">
+                  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                  <%= f.email_field :email, :placeholder => "email" %>
+                  <%= f.password_field :password, :placeholder => "password" %>
+                  <%= f.text_field :mobile, :placeholder => "mobile"%>
+                  <%= f.hidden_field :role, :value => "Patient"%>
                   <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                  <%= f.submit "Register", :class => "login_button" %>
+                  <% end %>
+                  <!-- <input type="text" placeholder="email">
+                  <input type="text" placeholder="mobile">
+                  <input type="password" placeholder="password"> -->
                   </div>
               </div>
               <!--end htab inner panels--> 
@@ -70,16 +81,26 @@
               <!--begin htab inner panels-->
               <div class="tabs-content">
                 <div id="Login2">
-                  <input type="text" placeholder="username">
-                  <input type="password" placeholder="password">
-                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
-                  <%=link_to "Troubles logging in?", "#"%> </div>
+                  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                    <%= f.email_field :email, :placeholder => "email" %>
+                    <%= f.password_field :password, :placeholder => "password" %>
+                  <!-- <input type="text" placeholder="username">
+                  <input type="password" placeholder="password"> -->
+                    <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                    <%=link_to "Troubles logging in?", "#"%>
+                     <%= f.submit "Login", :class => "login_button"%>
+                  <% end %> 
+                </div>
+
                 <div id="Register2">
-                  <input type="text" placeholder="username">
-                  <input type="text" placeholder="email">
-                  <input type="text" placeholder="mobile">
-                  <input type="password" placeholder="password">
-                  <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                    <%= f.email_field :email, :placeholder => "email" %>
+                    <%= f.password_field :password, :placeholder => "password" %>
+                    <%= f.text_field :mobile, :placeholder => "mobile"%>
+                    <%= f.hidden_field :role, :value => "Doctor"%>
+                    <button class="promotion-code" type="button">Enter a promotion code here if one has been provided</button>
+                    <%= f.submit "Register", :class => "login_button" %>
+                  <% end %>
                   </div>
               </div>
               <!--end htab inner panels--> 
