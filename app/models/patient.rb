@@ -18,20 +18,31 @@ class Patient < ActiveRecord::Base
 		%w[patient insurance payment]
 	end
 
+
 	def current_step
-	 if(@current_step == nil)
-	  steps.first
-	 else
+    #puts "------HEMANTH-----------#{@current_step.inspect}--------------------------"
+	 if @current_step.nil?
+     @current_step = steps.first
+   elsif @current_step == "patient"
+     @current_step = steps[1]
+   elsif @current_step == "insurance"
+     @current_step = steps.last
+   end
+   puts "---1---HEMANTH-----------#{@current_step.inspect}--------------------------"
+   #exit
 	 	@current_step
-	 end
 	end
 
 	def next_step
-	 if self.current_step == "patient"
+     puts "-----2-------NEXT STEP-----------#{current_step}--------"
 	  self.current_step=(steps[steps.index(current_step)+1])
-	 elsif self.current_step == "insurance"
-	  self.current_step=(steps[steps.index(current_step)+2])
-	 end
+     puts "-----3-------NEXT STEP-----------#{steps[steps.index(current_step)+1]}--------"
+   #elsif self.current_step == "insurance"
+   #  puts "----------ELSIF---------------------"
+	 # self.current_step=(steps[steps.index(current_step)+2])
+   #else
+   #  puts "-------------ELSE------------------"
+	 #end
 	end
 	def first_step?
 	  current_step == steps.first
