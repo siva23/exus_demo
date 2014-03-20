@@ -16,7 +16,7 @@
       <td><%=f.text_field :zip, :placeholder => "Zip", :class => "input-1"%></td>
     </tr>
     <tr>
-      <td><%=f.select :con, ["India", "United States of America", "China", "United Kingdom"], :placeholder => "Country", :class => "select-model-1"%></td>
+      <td><%=f.select :con, options_for_select(["India", "United States of America", "China", "United Kingdom"]), :placeholder => "Country", :class => "select-model-1"%></td>
       <td></td>
     </tr>
 </table>

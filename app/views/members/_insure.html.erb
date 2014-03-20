@@ -1,0 +1,11 @@
+<div class="current-insurance fixed-div" id="insure">
+    <ul>
+      <!-- <li class="remove"><a href="#" id="remove-button1">remove</a></li>--> 
+      <%@member.insurances.each do|i|%>
+          <div id=<%=i.id%>>
+            <%=i.iname%>
+            <%=link_to "remove", "#"%><br/>
+          </div>
+      <%end%>
+    </ul>
+</div>

@@ -1,12 +1,58 @@
-     <%= link_to "Log out", destroy_user_session_path %>
+     
+<div class="content_section">
+           <div class="content_article">
+            <h2><%= @member.fname %></h2>
+            <h3>(member id  <%= @member.id %>)</h3> </div>
+          <!-- content_article ends-->
+            <div class="text_area">
+            <div class="left-text-area">
+              <ul>
+                <li><%= link_to "Update profile", edit_member_path(@member) %></li>
+                <li><%= link_to "Add/remove provider", patients_providers_path %></li>
+                <li><%= link_to "Add/remove third party" %></li>
+                <li><%= link_to "Update payment info" %></li>
+              </ul>
+            </div>
+            <!-- left-text-area ends-->
+            <div class="right_text_area">
+            <%=form_for @member, :url => member_path, method: :patch do |f|%>
+          					<%#if @member.errors.any?%>
+          					 	<%#@member.errors.full_messages.each do|msg|%>
+          					 		<!-- <li><%#=msg%></li> -->
+          						<%#end%>
+          					 <%#end%>
+        					  <%= render "#{@member.current_step}_form", :f => f %>
+          					  <%if @member.last_step?%>
+          						  <ul class="next">
+          	              			<li>Step <%#=steps[@member.c]%> of 6:</li>
+          	               			 <%=f.submit "Submit", :class => "button"%>
+          	                	  </ul>
+          					  <%else%>
+          					  	<ul class="next">
+                        			<li>Step 1 of 6:</li>
+                        			<li class="next-button">
+                         			 <%=f.submit "Next", :name => "continue", :class => "button"%>
+                        			</li>
+                          		</ul>
+          					 <%end%>
+				<%end%>
+        </div>
+        <!-- right_text_area ends--> 
+      </div>
+      <!-- text_area ends--> 
+    </div>
+    <!-- content_section ends-->
+    <%= stylesheet_link_tag "select2", media: "all", "data-turbolinks-track" => true %>
+    <script type="text/javascript">
+    
+    $(document).ready(function() { 
+    $("#e1").select2(); 
+    $("#e2").select2();
+    $("#e3").select2();
+    $("#e4").select2(); 
+    $("#patient_con").select2(); 
+    $("#e5").select2(); 
+    });
+    </script>
 
- <%=form_for @member, :url => member_path, method: :patch do |f|%>
-  
-  <%= render "#{@member.current_step}_form", :f => f %>
-  <%if @member.last_step?%>
-    <%=f.submit "Submit"%>
-  <%else%>
-    <%=f.submit "Next", :name => "continue"%>
-  <%end%>
-  
-<%end%>
+   

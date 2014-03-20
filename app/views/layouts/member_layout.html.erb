@@ -14,6 +14,7 @@
 <%= stylesheet_link_tag "exusmed_styles", media: "all", "data-turbolinks-track" => true %>
 <%= stylesheet_link_tag "select2", media: "all", "data-turbolinks-track" => true %>
 <%= javascript_include_tag "jquery-1.9.1.js", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
 </head>
 
 <body>
@@ -36,7 +37,7 @@
       <div class="content">
         <div class="left_menu">
           <ul>
-            <li class="home"><%=link_to "home"%></li>
+            <li class="home"><%=link_to "home", root_path%></li>
             <li class="about"><%=link_to "about us"%></li>
             <li class="program"><%=link_to "programs"%></li>
             <li class="video"><%=link_to "Videos"%></li>

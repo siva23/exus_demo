@@ -5,3 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Insurance_names = ["AETNA", "BLUECROSS AND BLUESHIELD", "CIGNA", "HUMANA", "UNITED HEALTH CARE"]

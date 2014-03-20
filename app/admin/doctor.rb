@@ -81,7 +81,7 @@ ActiveAdmin.register Doctor do
        @page_title = "#{@doctor.fname.capitalize}: Insurances" # Set the page title
        # This will render app/views/admin/doctors/insurances.html.erb
   end
-  member_action :payments do
+  member_action :payment do
        @doctor = doctor.find(params[:id])
        @page_title = "#{@doctor.fname.capitalize}: Payment Details" # Set the page title
        # This will render app/views/admin/doctors/payments.html.erb
@@ -135,7 +135,7 @@ ActiveAdmin.register Doctor do
       column "Member Number", :memnum
       column "Group Number", :grpnum
     end
-    table_for f.payments do
+    table_for f.payment do
       column "Card Name", :cname
       column "Card Number", :cnum
       column "Expired Date", :expd

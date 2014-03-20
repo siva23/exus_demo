@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-	
+
   def create
   	build_resource(registration_params)
 	if resource.save
@@ -7,10 +7,12 @@ class RegistrationsController < Devise::RegistrationsController
 			@role = Patient.new()
 			@role.user_id = resource.id
 			@role.save
+			@role.payment = Payment.create(:validate => false)
 		else
 			@role = Doctor.new
 			@role.user_id = resource.id
 			@role.save
+			@role.payment = Payment.create(:validate => false)
 		end
 		redirect_to :action => 'index', :controller => 'home'
 	else

@@ -1,21 +1,30 @@
-<%=fields_for Payment.new do|f|%>
+<%=f.fields_for :payment do|i|%>
     <table>
     <tr>
-      <td><%=f.text_field :cname, :placeholder => "Name on Card", :class => "input-1"%></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><%=f.text_field :cnum, :placeholder => "Credit Card Number", :class => "input-1"%>
+      <td><%=i.text_field :cname, :placeholder => "Name on Card", :class => "input-1"%></td>
+      <td>
+      <div class="pos"><ul class="card_images">
+            <li><%=link_to image_tag("visa_img.jpg"), "#"%></li>
+            <li><%=link_to image_tag("mastercard_img.jpg"), "#"%></li>
+            <li><%=link_to image_tag("american-express_img.jpg"), "#"%></li>
+            <li><%=link_to image_tag("discover_img.jpg"), "#"%></li>
+            <li><%=link_to image_tag("securticode_img.jpg"), "#"%></li>
+          </ul>
+          <span class="e-check"><a href="#">Click here to pay by e-check</a></span></div>
       </td>
-      <td><%=f.date_field :expd, :placeholder => "Expiration Date", :class => "input-1"%></td>
     </tr>
     <tr>
-      <td><%=f.text_field :biladd, :placeholder => "Billing Address", :class => "input-1"%></td>
-      <td><%=f.text_field :bilcity, :placeholder => "Billing City", :class => "input-1"%></td>
+      <td><%=i.text_field :cnum, :placeholder => "Credit Card Number", :class => "input-1"%>
+      </td>
+      <td><%=i.date_field :expd, :placeholder => "Expiration Date", :class => "input-1"%></td>
     </tr>
     <tr>
-      <td><%=f.text_field :bilstate, :placeholder => "Billing State", :class => "input-1"%></td>
-      <td><%=f.text_field :bilzip, :placeholder => "Billing Zipcode", :class => "input-1"%></td>
+      <td><%=i.text_field :biladd, :placeholder => "Billing Address", :class => "input-1"%></td>
+      <td><%=i.text_field :bilcity, :placeholder => "Billing City", :class => "input-1"%></td>
+    </tr>
+    <tr>
+      <td><%=i.text_field :bilstate, :placeholder => "Billing State", :class => "input-1"%></td>
+      <td><%=i.text_field :bilzip, :placeholder => "Billing Zipcode", :class => "input-1"%></td>
     </tr>
   </table>
   <%end%>

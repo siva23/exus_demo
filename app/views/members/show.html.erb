@@ -1,5 +1,69 @@
-<li><%= link_to "Update profile", edit_member_path(@member.id) %></li>
-                <li><%= link_to "Add/remove provider" %></li>
+<div class="content_section">
+          <div class="content_article">
+            <h2><%= @member.fname %></h2>
+            <h3>(member id  <%=@member.id%>)</h3> </div>
+          <!-- content_article ends-->
+          
+          <div class="text_area">
+            <div class="left-text-area">
+            	<%#=notice%>
+              <ul>
+                <li><%= link_to "Update profile", edit_member_path(@member.id) %></li>
+                <li><%= link_to "Add/remove provider", patients_providers_path %></li>
                 <li><%= link_to "Add/remove third party" %></li>
                 <li><%= link_to "Update payment info" %></li>
-                <%= link_to "Log out", destroy_user_session_path %>
+              </ul>
+            </div>
+            <!-- left-text-area ends-->
+            
+            <div class="right_text_area">
+              <div class="patient_column fixed-div">
+                <div class="patient-left_area">
+                  <ul class="patient-details">
+                    <li><%#= @member.fname + @member.lname %></li>
+                    <li><%= @member.phone %></li>
+                    <li><%= @member.stadd %></li>
+                    <li><%= @member.city %><span><%= @member.zip %></span></li>
+                  </ul>
+                  <ul class="patient-insurance-details">
+                    <li>INSURANCE PROVIDER</li>
+                    <li><%= @member.insurances.collect{|e| e.iname}.join(",") %></li>
+                    <li>PRIMARY PHYSICIAN</li>
+                    <li><%= @member.doctors.collect{|e| e.fname}.join(",")%></li>
+                  </ul>
+                  <ul class="patient-medical-details">
+                    <li>MEDICAL HISTORY:</li>
+                    <li><!-- -CIRCULATORY/CHEST PAIN -->yet to done</li>
+                  </ul>
+                </div>
+                <div class="patient-right_area">
+                  <table>
+                    <tr>
+                      <td colspan="3"><%=image_tag @member.image.url(:thumb), :alt => ""%></td>
+                      </tr>
+                    <tr>
+                      <td>Height</td>
+                      <td>:</td>
+                      <td>---</td>
+                    </tr>
+                    <tr>
+                      <td>Weight</td>
+                      <td>:</td>
+                      <td>---</td>
+                    </tr>
+                    <tr>
+                      <td>Age</td>
+                      <td>:</td>
+                      <td><%#= @today.year - @member.dob.year %></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <!-- patient_column ends--> 
+            </div>
+            <!-- right_text_area ends--> 
+          </div>
+          <!-- text_area ends--> 
+        </div>
+        <!-- content_section ends-->
+

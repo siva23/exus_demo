@@ -3,10 +3,12 @@ class Patient < ActiveRecord::Base
 	belongs_to :user
 	accepts_nested_attributes_for :user
 	has_many :insurances, as: :insurable, :dependent => :destroy
-	has_many :payments, as: :payable, :dependent => :destroy
+	has_one :payment, as: :payable, :dependent => :destroy
 	has_many :appointments
 	has_many :doctors, :through => :appointments
+	accepts_nested_attributes_for :insurances, :payment
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+	validates_presence_of :fname
 	attr_accessor :current_step
 
 	def self.gen_password
@@ -15,35 +17,22 @@ class Patient < ActiveRecord::Base
 	end
 
 	def steps
-		%w[patient insurance payment]
+		%w[patient insurance payment confirm]
 	end
 
 
 	def current_step
-    #puts "------HEMANTH-----------#{@current_step.inspect}--------------------------"
-	 if @current_step.nil?
-     @current_step = steps.first
-   elsif @current_step == "patient"
-     @current_step = steps[1]
-   elsif @current_step == "insurance"
-     @current_step = steps.last
-   end
-   puts "---1---HEMANTH-----------#{@current_step.inspect}--------------------------"
-   #exit
-	 	@current_step
+		@current_step || steps.first
 	end
 
 	def next_step
-     puts "-----2-------NEXT STEP-----------#{current_step}--------"
-	  self.current_step=(steps[steps.index(current_step)+1])
-     puts "-----3-------NEXT STEP-----------#{steps[steps.index(current_step)+1]}--------"
-   #elsif self.current_step == "insurance"
-   #  puts "----------ELSIF---------------------"
-	 # self.current_step=(steps[steps.index(current_step)+2])
-   #else
-   #  puts "-------------ELSE------------------"
-	 #end
+	  self.current_step = (steps[steps.index(current_step)+1])
 	end
+
+	def previous_step
+  	  self.current_step = steps[steps.index(current_step)-1]
+	end
+
 	def first_step?
 	  current_step == steps.first
 	end
@@ -53,9 +42,6 @@ class Patient < ActiveRecord::Base
 	end
 
 	def all_valid?
-	  steps.all? do |step|
-	    self.current_step = step
-	    valid?
-	  end
+	  
 	end
 end

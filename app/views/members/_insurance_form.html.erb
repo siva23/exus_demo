@@ -1,11 +1,84 @@
-<%=fields_for Insurance.new do|f|%>
-    <table>
-     <tr>
-      <td colspan="2"><%=f.select :iname, ["Abhaya", "Aetna", "Health card", "BLUE CROSS AND BLUE SHIELD"], :placeholder => "Insurance", :html => {:class => "select-model-3", :id => "e4"}%></td>
-    </tr>
-    <tr>
-      <td><%=f.text_field :memnum, :placeholder => "Member number", :class => "input-1"%></td>
-      <td><%=f.text_field :grpnum, :placeholder => "Group number", :class => "input-1"%></td>
-    </tr>
-  </table>
-<%end%>
+<div class="right_text_area">
+  
+               <table>
+                  <tr>
+                  <td colspan="2">
+                    <select class="select-model-1" name="iname" id="e4">
+                      <option value="AETNA">AETNA</option>
+                      <option value="BLUE CROSS AND BLUE SHIELD">BLUE CROSS AND BLUE SHIELD</option>
+                      <option value="CIGNA">CIGNA</option>
+                      <option value="HUMANA">HUMANA</option>
+                      <option value="UNITED HEALTH CARE">UNITED HEALTH CARE</option>
+                    </select> 
+                  </td>
+                  </tr>
+                  <tr>
+                    <td><%=text_field_tag :memnum, nil, :placeholder => "Group Number", :class => "input-1" %></td>
+                    <td><%=text_field_tag :grpnum, nil, :placeholder => "Member Number", :class => "input-1" %></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><button type="button" class="button btn1" name="addins" onclick="add_insurance()">Add Insurance</button></td>
+                  </tr>
+                </table>  
+
+
+                <span class="span1">current insurance</span>
+                <div class="current-insurance fixed-div" id="insure">
+                  <ul>
+                    <!-- <li class="remove"><a href="#" id="remove-button1">remove</a></li>-->
+                    <%if f.object.insurances.empty?%>
+                           No Records Found
+                    <%else%>  
+                        <%f.object.insurances.each do|i|%>
+                        <div id=<%=i.id%>>
+                          <%=i.iname%>
+                          <%=link_to "remove", "#"%><br/>
+                        </div>
+                        <%end%>
+                    <%end%>
+                  </ul>
+                </div>
+            </div>
+ <%= stylesheet_link_tag "select2", media: "all", "data-turbolinks-track" => true %>
+<script type="text/javascript">
+    $(document).ready(function() { 
+    $("#e1").select2(); 
+    $("#e2").select2();
+    $("#e3").select2();
+    $("#e4").select2(); 
+    $("#patient_con").select2(); 
+    $("#e5").select2(); 
+    });
+    function add_insurance(){
+      var iname = document.getElementById('e4').value;
+      var memnum = document.getElementById('memnum').value;
+      var grpnum = document.getElementById('grpnum').value;
+      var param = {'memnum':memnum, 'grpnum':grpnum, 'iname':iname }
+      if(memnum==null || memnum=="" || grpnum == null || grpnum==""){
+        alert("Insurance Fields should not be empty");
+      }
+      else
+      {
+        $.ajax({
+          url: "insurance/new",
+          type: "POST",
+          data: param,
+          success: function(b){
+                    $('#memnum').value='';
+                    alert("Insurance added");
+                  }
+        });
+       
+      }
+      
+    }
+
+    </script>
+
+
+            
+            
+            
+            
+
+      

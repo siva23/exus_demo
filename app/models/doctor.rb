@@ -3,7 +3,7 @@ class Doctor < ActiveRecord::Base
 	belongs_to :user
 	accepts_nested_attributes_for :user
 	has_many :insurances, as: :insurable, :dependent => :destroy
-	has_many :payments, as: :payable, :dependent => :destroy
+	has_one :payment, as: :payable, :dependent => :destroy
 	has_many :appointments
 	has_many :patients, :through => :appointments
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
