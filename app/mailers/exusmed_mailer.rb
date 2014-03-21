@@ -6,4 +6,9 @@ class ExusmedMailer < ActionMailer::Base
     @pwd = pwd
     mail to: "#{@email}", subject: "Exusmed Profile created!"
   end
+
+  def invite_provider(email, fname)
+  	@fname = fname
+  	mail to:"#{email}", subject: "Exusmed invitation"
+  end
 end

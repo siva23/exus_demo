@@ -1,0 +1,44 @@
+<div class="right_text_area"> 
+              <form>
+                <table>
+                  <tr>
+                    <td><input class="input-3" type="text" id="fname" placeholder="Provider first name"></td>
+                  </tr>
+                  <tr>
+                    <td><input class="input-3" type="text" id="lname" placeholder="provider last name"></td>
+                  </tr>
+                  <tr>
+                    <td><input class="input-2" type="text" placeholder="provider phone number"></td>
+                  </tr>
+                  <tr>
+                    <td><input class="input-2" type="text" id="email" placeholder="provider email if available"></td>
+                  </tr>
+                </table>
+                <ul class="submit">
+                  <li>
+                    <input class="submit-button" type="submit" value="submit" onclick="email_deliver()">
+                  </li>
+                </ul>
+              </form>
+</div>
+
+<script>
+function email_deliver(){
+  var email=document.getElementById('email').value;
+  var fname=document.getElementById('fname').value
+    if(fname==null || fname=="" || email == null || email==""){
+        alert("Email and First name fields should be filled");
+    }
+    else
+    {
+        $.ajax({
+          type: 'POST',
+          url: '/email_deliver',
+          data: {id: email, name: fname},
+          success: function(n){
+            alert("hia");
+          }
+        });
+    }
+}
+</script>

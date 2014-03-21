@@ -31,8 +31,8 @@
                     <%else%>  
                         <%f.object.insurances.each do|i|%>
                         <div id=<%=i.id%>>
-                          <%=i.iname%>
-                          <%=link_to "remove", "#"%><br/>
+                        <%=i.iname%>
+                        <%=link_to "remove", "#", :id => i.id, :onclick => "remove_insurance(this.id)"%><br/>
                         </div>
                         <%end%>
                     <%end%>
@@ -49,7 +49,28 @@
     $("#patient_con").select2(); 
     $("#e5").select2(); 
     });
+  
+
+   
+
+    function remove_insurance(val){
+
+           // alert(val);
+        $.ajax({
+          url: "/remove_insurance",
+          type: "GET",
+          data: {id: val},
+          success:  function(){
+             $("#"+val).css({"display":"none"});
+            //alert("function remove called");
+          }
+        });
+    }
+
+    //adding insurance via ajax
     function add_insurance(){
+      // alert("added");
+      // return false;
       var iname = document.getElementById('e4').value;
       var memnum = document.getElementById('memnum').value;
       var grpnum = document.getElementById('grpnum').value;
@@ -72,7 +93,6 @@
       }
       
     }
-
     </script>
 
 

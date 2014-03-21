@@ -7,16 +7,16 @@ class RegistrationsController < Devise::RegistrationsController
 			@role = Patient.new()
 			@role.user_id = resource.id
 			@role.save
-			@role.payment = Payment.create(:validate => false)
+			@role.payment = Payment.create
 		else
 			@role = Doctor.new
 			@role.user_id = resource.id
 			@role.save
-			@role.payment = Payment.create(:validate => false)
+			@role.payment = Payment.create
 		end
 		redirect_to :action => 'index', :controller => 'home'
 	else
-		redirect_to :action => 'index', :controller => 'home'
+		render :text => resource.errors.inspect
 	end
   end
 

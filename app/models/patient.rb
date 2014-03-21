@@ -8,7 +8,7 @@ class Patient < ActiveRecord::Base
 	has_many :doctors, :through => :appointments
 	accepts_nested_attributes_for :insurances, :payment
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-	validates_presence_of :fname
+	#validates_presence_of :fname
 	attr_accessor :current_step
 
 	def self.gen_password

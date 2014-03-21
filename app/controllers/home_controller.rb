@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 		if current_user.role == "Doctor"
 			redirect_to doctor_path(current_user.id)
 		else
-			redirect_to member_path(current_user.id)
+			redirect_to edit_member_path(current_user.id)
 		end
 	end
 

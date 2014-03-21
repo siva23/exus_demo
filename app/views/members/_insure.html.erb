@@ -4,7 +4,7 @@
       <%@member.insurances.each do|i|%>
           <div id=<%=i.id%>>
             <%=i.iname%>
-            <%=link_to "remove", "#"%><br/>
+            <%=link_to "remove", "#", :id => i.id, :onclick => "remove_insurance(this.id)"%><br/>
           </div>
       <%end%>
     </ul>

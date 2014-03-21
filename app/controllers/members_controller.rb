@@ -23,6 +23,7 @@ class MembersController < ApplicationController
   end
 
   def edit
+    @member = Patient.find_by(:user_id => current_user.id)
     session[:patient_params] ||= {}
     session[:member]= @member.id
     @member.current_step = session[:patient_step]
@@ -60,7 +61,10 @@ class MembersController < ApplicationController
   end
   
   def remove_insurance
-    
+     @member = Patient.find_by(:user_id => current_user.id)
+     @member.insurances.find(params[:id]).destroy
+    puts params.inspect
+    render :text => params.inspect
   end
 
 end

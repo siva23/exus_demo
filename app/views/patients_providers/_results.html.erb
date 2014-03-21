@@ -1,0 +1,17 @@
+<div class="ac_results" id="confirm_btns" style="display: block;">
+                  <%@doctors.each do|doc|%>
+                  <ul>
+                    <li class="ac_even"><span><%=doc.fname%></span></li>
+                    <li class="ac_odd"></li>
+                  </ul>
+                  <%end%>
+                  <!-- buttons for submit and provider not found -->
+                <ul class="confirm-selection confirm-btns confirm-btns-equal">
+                <li>
+                  <input type="submit" value="Select">
+                </li>
+                <li>
+                  <input type="submit" value="Provider not Found" onclick="invite_provider()">
+                </li>
+              </ul>
+</div>

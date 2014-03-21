@@ -37,7 +37,7 @@
       <div class="content">
         <div class="left_menu">
           <ul>
-            <li class="home"><%=link_to "home", root_path%></li>
+            <li class="home"><%=link_to "home", member_path(current_user.id)%></li>
             <li class="about"><%=link_to "about us"%></li>
             <li class="program"><%=link_to "programs"%></li>
             <li class="video"><%=link_to "Videos"%></li>
