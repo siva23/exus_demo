@@ -1,5 +1,143 @@
-<!-- <h1><%=current_user.role.capitalize%></h1>
-<p>You logged in </p> -->
-<%#if user_signed_in?%>
-<%#=link_to 'logout', destroy_user_session_path, :method => :delete%>
-<%#end%>
+
+<%= javascript_include_tag "jquery.confirmon.js", "data-turbolinks-track" => true %>
+<div class="content_section">
+          <div class="content_article">
+             <h2><%= @member.fname %></h2>
+            <h3>(member id  <%=@member.id%>)</h3> </div>
+          <!-- content_article ends-->
+          <div class="text_area">
+            <div class="left-text-area">
+              <ul>
+                <li><%= link_to "Update profile", edit_member_path(@member) %></li>
+                <li><%= link_to "Add/remove provider", patients_providers_path %></li>
+                <li><%= link_to "Add/remove third party", members_path %></li>
+                <li><%= link_to "Update payment info", "#" %></li>
+              </ul>
+            </div>
+            <!-- left-text-area ends-->
+            <div class="right_text_area" id="invitie">
+              <!-- <form> -->
+                <table>
+                  <tr>
+                    <td colspan="2"><input class="input-3" type="text" placeholder="search new provider (name or phone #)" id="search" onfocus="search_for_members()" onblur="show_nexus()" onkeyup="search_members(this.value)"></td>
+                  </tr>
+                  </table>
+                  <div class="ac_results" id="confirm_btns" style="display: none;">
+                  <div id="data">
+                    <ul>
+                      <li class="ac_even"><span></span></li>
+                      <li class="ac_odd"></li>
+                    </ul>
+                </div>
+                  <!-- buttons for submit and provider not found -->
+                <ul class="confirm-selection confirm-btns confirm-btns-equal">
+                <li>
+                  <input type="submit" value="Select">
+                </li>
+                <li>
+                  <input type="submit" value="Provider not Found" onclick="invite_relatives()">
+                </li>
+              </ul>
+                </div>
+             <!--  </form> -->
+              <span class="span1">current Third Party members</span>
+              <div class="current-nexus-members fixed-div" id="nexus">
+              	<%@member.relatives.each do|mem|%>
+                <dl>
+                  <div class=<%=mem.id%>>
+                  <dt><img src="../images/img.jpg" alt=""></dt>
+                  <dd><%=mem.fname%></dd>
+                  <dd><%=mem.lname%> <span><%=link_to "remove", "#", :id => mem.id, :onclick => "remove_join_relative(this.id)"%></span></dd>
+                </div>
+                </dl>
+                <%end%>
+                <!-- <dl>
+                  <dt><img src="images/img.jpg" alt=""></dt>
+                  <dd>alberison,Joeph, MD -General Practitioner</dd>
+                  <dd>san diego ca <span><a id="remove-button2" href="#">remove</a></span></dd>
+                  
+                </dl>
+                <dl>
+                  <dt><img src="images/img.jpg" alt=""></dt>
+                  <dd>alberison,Joeph, MD -General Practitioner</dd>
+                  <dd>san diego ca <span><a id="remove-button3" href="#">remove</a></span></dd>
+                  
+                </dl> -->
+              </div>
+            </div>
+            <!-- right_text_area ends--> 
+          </div>
+          <!-- text_area ends--> 
+        </div>
+        <!-- content_section ends -->
+
+
+<script type="text/javascript">
+    $(document).ready(function() { 
+		$("#e1").select2(); 
+		$("#e2").select2();
+		$("#e3").select2();
+		$("#e4").select2(); 
+		$("#e5").select2(); 
+	});
+    </script> 
+<%= javascript_include_tag "scrollpane.min.js", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "select2.js", "data-turbolinks-track" => true %>
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    $(function()
+  		{
+  		// Initialise the scrollpanes
+  		$('.fixed-div').jScrollPane({showArrows: true});
+
+  	});
+  });
+
+  //gets the provider form
+  function invite_relative(){
+    $.ajax({
+      type: 'GET',
+      url: '/invite_relative'
+    });
+  }
+
+  //show the nexus
+  function show_nexus(){
+    //alert("hia");
+    $('#nexus').css({"display":"block"});
+    //$('#data').css({"display":"none"});
+  }
+
+  //hides the nexus and allows the user to invite provider with a button
+  function search_for_members(){
+    //alert("searching");
+    $('#nexus').css({"display":"none"});
+  }
+
+
+  //displays the content as user searches
+  function search_members(val){
+    $.ajax({
+      type: 'GET',
+      url: '/search_members',
+      data: {id: val},
+      success: function(){
+         $('#confirm_btns').css({"display":"block"});
+       // alert("function called for search");
+      }
+    });
+  }
+
+  //removes the entry from join table
+  function remove_join_relative(val){
+    $.ajax({
+      type: 'DELETE',
+      url: '/remove_join_relative',
+      data: {id: val},
+      success: function(){
+        $('.'+val).css({"display":"none"});
+        alert("removed successfully");
+      }
+    });
+  }
+</script>

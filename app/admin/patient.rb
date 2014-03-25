@@ -150,14 +150,14 @@ ActiveAdmin.register Patient do
       column "Appointment Date", :aptdate
       column "Appointment Reason", :aptreason
       column "Doctor Name" do|t|
-        t.doctor.fname
+        #t.doctor.fname
       end
       column "Clinic Number" do|t|
-        t.doctor.clnum
+      #  t.doctor.clnum
       end
     end
   end
-  filter :fname_or_lname, :as => :string, :label => "Patients Name"
+ # filter :fname_or_lname, :as => :string, :label => "Patients Name"
   filter :phone, :label => "Phone"
   filter :city, :label => "Clinic City", :as => :select, :collection => proc{(Patient.all).map{|c| c.city}}
   filter :user_email, :as => :string

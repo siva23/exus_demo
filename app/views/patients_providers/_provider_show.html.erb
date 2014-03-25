@@ -1,0 +1,74 @@
+<div class="right_text_area">
+              <div class="patient_column fixed-div">
+                <div class="patient-left_area">
+                  <ul class="patient-details">
+                    <li><%=@doctor.fname%></li>
+                    <li><%=@doctor.clstadd%></li>
+                    <li><%=@doctor.lname%><span><%=@doctor.zip%></span></li>
+                  </ul>
+                  <ul class="patient-insurance-details">
+                    <li>PRIMARY PROVIDER:</li>
+                    <li>---------</li>
+                  </ul>
+                  <ul class="patient-medical-details">
+                    <li>SECONDARY PROVIDER:</li>
+                    <li>----------</li>
+                  </ul>
+                </div>
+                <div class="patient-right_area">
+                  <table>
+                    <tr>
+                      <td colspan="3"><%=image_tag @doctor.image.url(:thumb)%></td>
+                      </tr>
+                    <tr>
+                      <td>Height</td>
+                      <td>:</td>
+                      <td>4’-11”</td>
+                    </tr>
+                    <tr>
+                      <td>Weight</td>
+                      <td>:</td>
+                      <td>102 lbs</td>
+                    </tr>
+                    <tr>
+                      <td>Age</td>
+                      <td>:</td>
+                      <td>60</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <!-- provider_column ends-->
+              
+              <ul class="confirm-btns confirm-btns-equal">
+                <li>
+                  <input type="submit" value="back" onclick="move_to_nexus_search()">
+                </li>
+                <li class="next-button">
+                  <input type="submit" value="confirm" id=<%=@doctor.id%> onclick="join_provider(this.id)">
+                </li>
+              </ul>
+            </div>
+<script>
+function join_provider(val){
+  $.ajax({
+    type: 'POST',
+    url: '/join_provider',
+    data: {id: val},
+    success: function(n){
+       alert("successfully added to nexus");
+      $.ajax({
+        type: 'GET',
+        url: '/redir_index'
+      });
+    }
+  });
+}
+
+function move_to_nexus_search(){
+  $.ajax({
+        type: 'GET',
+        url: '/redir_index'
+      });
+}
+</script>

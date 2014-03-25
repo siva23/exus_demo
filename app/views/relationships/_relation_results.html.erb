@@ -1,9 +1,8 @@
 <div class="ac_results" id="confirm_btns">
-                  <%#=if @doctors.nil%>
-                  <%@doctors.each do|doc|%>
+                  <%@members.each do|mem|%>
                   <div id="data">
                   <ul>
-                    <li class="ac_even"><span><%=link_to doc.fname, "#",:id => doc.id, :class => "ac_even", :onclick => "show_provider(this.id)"%></span></li>
+                    <li class="ac_even"><span><%=link_to mem.fname, "#",:id => mem.id, :class => "ac_even", :onclick => "show_member(this.id)"%></span></li>
                     <!-- <li class="ac_odd"></li> -->
                   </ul>
                 </div>
@@ -14,20 +13,17 @@
                   <input type="submit" value="Select">
                 </li>
                 <li>
-                  <input type="submit" value="Provider not Found" onclick="invite_provider()">
+                  <input type="submit" value="Provider not Found" onclick="invite_relative()">
                 </li>
               </ul>
 </div>
 <script>
-  //show provider details
-  function show_provider(val){
+  //show Member details
+    function show_member(val){
     $.ajax({
         type: 'GET',
-        url: '/show_provider',
+        url: '/show_member',
         data: {id: val}
-        // success: function(n){
-        //   alert("function");
-        // }
     });
   }
 </script>

@@ -1,10 +1,10 @@
 class MembersController < ApplicationController
   layout 'member_layout'
 	before_filter :authenticate_user!
-  before_filter :set_member, :only => [:show, :edit, :index]
+  before_action :set_member, :only => [:show, :edit, :index]
 
   def index
-   
+    
   end
 
   def new
