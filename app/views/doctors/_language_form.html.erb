@@ -1,0 +1,59 @@
+ <table>
+    <tr>
+      <td><select id="e1" class="select-model-1">
+          <option value="">spoken languages</option>
+          <option value="Africans">africans</option>
+          <option value="Albanian">albanian</option>
+          <option value="Amharc">amharc </option>
+          <option value="Arabic">arabic</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><input class="button-2" type="button" value="add languages" onclick="add_languages()"></td>
+    </tr>
+  </table>
+  <span class="span1">current set languages</span>
+  <div class="current-column fixed-div" id="language">
+    <ul>
+      <%if f.object.languages.empty?%>
+            No Records Found
+        <%else%>  
+            <%f.object.languages.each do|i|%>
+                <div id=<%=i.id%>>
+                <%=i.name%>
+                <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_language(this.id)"%><br/>
+                </div>
+            <%end%>
+        <%end%>
+    </ul>
+  </div>
+
+<script>
+  function add_languages(){
+    var name = document.getElementById('e1').value;
+    if(name==null || name==""){
+        alert("Select the language");
+      }
+      else{
+            $.ajax({
+              type: 'POST',
+              url: '/add_languages',
+              data:{'name':name},
+              success: function(n){
+                alert("Language added successfully");
+              }
+            });
+      }
+  }
+
+  function remove_provider_language(val){
+    $.ajax({
+      type: 'GET',
+      url: '/remove_provider_language',
+      data: {id: val},
+      success: function(n){
+        $('#'+val).css({"display":"none"});
+      }
+    });
+  }
+  </script>

@@ -1,0 +1,59 @@
+<table>
+    <tr>
+      <td><select id="e1" class="select-model-7">
+          <option value="">add certifications</option>
+          <option value="Adolescant Medicine">adolescant medicine</option>
+          <option value="Adult Congenital Heart Disease">adult congenital heart disease</option>
+          <option value="Advanced Heart Failure">advanced heart failure </option>
+        </select></td>
+      <td><input type="text" placeholder="year" class="input-6" id="certify_year"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input class="button-2" type="button" value="add certification" onclick="add_provider_certification()"></td>
+    </tr>
+  </table>
+  <span class="span1">current certifications</span>
+  <div class="current-column fixed-div" id="certification">
+    <ul>
+      <%if f.object.certifications.empty?%>
+            No Records Found
+        <%else%>  
+            <%f.object.certifications.each do|i|%>
+                <div id=<%=i.id%>>
+                <%=i.name%>
+                <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_certification(this.id)"%><br/>
+                </div>
+            <%end%>
+        <%end%>
+    </ul>
+  </div>
+  <script>
+  function add_provider_certification(){
+    var year = document.getElementById('certify_year').value;
+    var name = document.getElementById('e1').value;
+    if(year==null || year=="" || name==null || name==""){
+        alert("Fields should not be empty");
+      }
+      else{
+            $.ajax({
+              type: 'GET',
+              url: '/add_provider_certification',
+              data:{'year':year, 'name':name},
+              success: function(n){
+                alert("certification added successfully");
+              }
+            });
+      }
+  }
+
+  function remove_provider_certification(val){
+    $.ajax({
+      type: 'GET',
+      url: '/remove_provider_certification',
+      data: {id: val},
+      success: function(n){
+        $('#'+val).css({"display":"none"});
+      }
+    })
+  }
+  </script>

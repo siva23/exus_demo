@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   layout 'member_layout'
 	before_filter :authenticate_user!
   before_action :set_member, :only => [:show, :edit, :index]
+  before_action :check_role?
 
   def index
     
@@ -72,6 +73,14 @@ private
 
   def set_member
     @member = Patient.find_by(:user_id => current_user.id)
+  end
+
+  def check_role?
+    if current_user.role=="Patient"
+      true
+    else
+      render :text => "You dont have permissions to this section"
+    end
   end
 
   def patient_params

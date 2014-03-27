@@ -1,2 +1,67 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+ <div class="content_section">
+          <div class="content_article">
+            <h2><%=@provider.fname%></h2>
+            <h3>(MEMBER ID  <%=@provider.id%>)</h3>
+          </div>
+          <!-- content_article ends-->
+          <div class="text_area">
+            <div class="left-text-area">
+              <ul>
+                <li><%= link_to "Update profile", edit_doctor_path%></li>
+                <li><%= link_to "Add/remove patients", "#" %></li>
+                <li><%= link_to "Add/remove third party", "#"%></li>
+                <li><%= link_to "Update payment info", "#"%></li>
+              </ul>
+            </div>
+            <!-- left-text-area ends-->
+            
+            <div class="right_text_area">
+              <div class="provider_column2 fixed-div">
+                <div class="provider-left_area">
+                  <ul class="provider-details">
+                    <li><%=@provider.fname%></li>
+                    <li><%=@provider.lname%></li>
+                    <li><%=@provider.clname%></li>
+                    <li><%=@provider.clstadd%></li>
+                    <li><%=@provider.clcity%></li>
+                  </ul>
+                  <ul class="provider-details">
+                    <li>STAFF:</li>
+                    <li>------------------</li>
+                  </ul>
+                  <ul class="provider-details">
+                    <li>SECONDARY PROVIDERS:</li>
+                    <li>------------------</li>
+                  </ul>
+                </div>
+                <div class="provider-right_area">
+                  <table>
+                    <tr>
+                      <td><%=image_tag @provider.image.url(:thumb)%></td>
+                    </tr>
+                    <tr>
+                      <td>specialities:</td>
+                    </tr>
+                    <tr>
+                      <td>Internal</td>
+                    </tr>
+                    <tr>
+                      <td>Medicine</td>
+                    </tr>
+                    <tr>
+                      <td>Infectious</td>
+                    </tr>
+                    <tr>
+                      <td>Diseases</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <!-- provider_column ends--> 
+              
+            </div>
+            <!-- right_text_area ends--> 
+          </div>
+          <!-- text_area ends--> 
+        </div>
+        <!-- content_section ends-->

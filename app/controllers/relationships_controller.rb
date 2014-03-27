@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_user, :only => [:create, :destroy]
+  before_action :set_user, :only => [:create, :destroy, :redir_relative_index]
   def create
     @member.relations.build(:relative_id => params[:id])
     @member.save
@@ -28,6 +28,9 @@ class RelationshipsController < ApplicationController
   
   def show_member
   	@member = Patient.find(params[:id])
+  end
+
+  def redir_relative_index
   end
 
 end

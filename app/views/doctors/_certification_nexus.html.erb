@@ -1,0 +1,10 @@
+<div class="current-column fixed-div" id="certification">
+    <ul> 
+        <%@provider.certifications.each do|i|%>
+            <div id=<%=i.id%>>
+            <%=i.name%>
+            <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_certification(this.id)"%><br/>
+            </div>
+        <%end%>
+    </ul>
+  </div>

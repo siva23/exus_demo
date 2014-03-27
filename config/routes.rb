@@ -15,6 +15,17 @@ Exusmed::Application.routes.draw do
   match '/show_member' => 'relationships#show_member', :via => :get
   match '/join_party' => 'relationships#create', :via => :post
   match '/remove_join_relative' => 'relationships#destroy', :via => :delete
+  match '/redir_relative_index' => 'relationships#redir_relative_index', :via => :get
+  match '/provider_insurance' => 'doctors#add_provider_insurance', :via => :post
+  match '/remove_provider_insurance' => 'doctors#remove_provider_insurance', :via => :get
+  match '/add_provider_speciality' => 'doctors#add_provider_speciality', :via => :post
+  match '/remove_provider_speciality' => 'doctors#remove_provider_speciality', :via => :get
+  match '/add_provider_certification' => 'doctors#add_provider_certification', :via => :get
+  match '/remove_provider_certification' => 'doctors#remove_provider_certification', :via => :get
+  match '/add_languages' => 'doctors#add_languages', :via => :post
+  match '/remove_provider_language' => 'doctors#remove_language', :via => :get
+  match '/add_provider_edudetail' => 'doctors#add_provider_edudetail', :via => :get
+  match '/remove_provider_edudetail' => 'doctors#remove_provider_edudetail', :via => :get
 
   get 'home/index'
   get 'patients_providers/show_provider'

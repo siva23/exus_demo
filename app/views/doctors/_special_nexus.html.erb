@@ -1,0 +1,15 @@
+<div class="current-column fixed-div" id="speciality">
+    <ul>
+      <!-- <li class="remove"><a href="#" id="remove-button1">remove</a></li>-->
+      <%if @provider.specialities.empty?%>
+             No Records Found
+      <%else%>  
+          <%@provider.specialities.each do|i|%>
+          <div id=<%=i.id%>>
+          <%=i.skill%>
+          <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_speciality(this.id)"%><br/>
+          </div>
+          <%end%>
+      <%end%>
+    </ul>
+</div>

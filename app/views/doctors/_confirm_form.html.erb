@@ -1,0 +1,22 @@
+<table>
+    <tr>
+      <td><%#=@member.fname.capitalize%></td>
+      <td></td>
+    </tr>
+   <tr>
+   	  <td>City:<%=@provider.clcity%></td>
+      <td>Street Address:<%=@provider.clstadd%></td>
+    </tr>
+    <tr>
+      <td>Date-of-Birth:<%=@provider.dob%></td>
+      <td>State:<%=@provider.state%></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      	<%if @provider.image.exists?%>
+      	<%=image_tag(@provider.image.url(:thumb))%>
+      	<%end%>
+      	<%=f.file_field :image%></td>
+    </tr>
+    
+</table>

@@ -46,31 +46,7 @@
           </ul>
         </div>
         <!-- left_menu ends-->
-        
-        <div class="content_section">
-          <div class="content_article">
-            <!-- <h2>john richardson, md</h2>
-<h3>(member id 0000034667)</h3> -->
-          </div>
-          <!-- content_article ends-->
-          <div class="text_area">
-          <div class="left-text-area">
-              <ul>
-                <li><%= link_to "Update profile"%></li>
-                <li><%= link_to "Add/remove patients" %></li>
-                <li><%= link_to "Add/remove third party"%></li>
-                <li><%= link_to "Update payment info"%></li>
-              </ul>
-      </div>
-            
-          <%= yield %>
-
-            <!-- left-text-area ends-->
-        
-            <!-- right_text_area ends-->
-          </div>
-          <!-- text_area ends-->
-        </div>
+        <%=yield%>
         <!-- content_section ends-->
         <div class="right_menu">
           <ul>

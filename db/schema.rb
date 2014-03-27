@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325103743) do
+ActiveRecord::Schema.define(version: 20140326123929) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(version: 20140325103743) do
     t.integer  "patient_id"
   end
 
+  create_table "certifications", force: true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "doctor_id"
+  end
+
   create_table "doctors", force: true do |t|
     t.string   "fname"
     t.string   "lname"
@@ -79,6 +87,14 @@ ActiveRecord::Schema.define(version: 20140325103743) do
     t.datetime "image_updated_at"
   end
 
+  create_table "edudetails", force: true do |t|
+    t.string   "clgname"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "doctor_id"
+  end
+
   create_table "insurances", force: true do |t|
     t.string   "iname"
     t.string   "memnum"
@@ -87,6 +103,13 @@ ActiveRecord::Schema.define(version: 20140325103743) do
     t.datetime "updated_at"
     t.integer  "insurable_id"
     t.string   "insurable_type"
+  end
+
+  create_table "languages", force: true do |t|
+    t.string   "name"
+    t.integer  "doctor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "patients", force: true do |t|
@@ -126,6 +149,19 @@ ActiveRecord::Schema.define(version: 20140325103743) do
     t.integer  "patient_id"
     t.integer  "relative_id"
     t.string   "relate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specialities", force: true do |t|
+    t.string   "skill"
+    t.integer  "doctor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specialnames", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

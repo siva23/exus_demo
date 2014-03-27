@@ -1,0 +1,86 @@
+<div class="right_text_area">
+  
+       <table>
+          <tr>
+            <td><select id="e1" class="select-model-1">
+                <option value="">add speciality</option>
+                <%=Specialname.all.each do|t|%>
+                <option value=<%=t.name%>><%=t.name%></option>
+                <%end%>
+              </select>
+
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="button" class="button btn1" name="addins" onclick="add_provider_speciality()">Add Speciality</button></td>
+          </tr>
+        </table>  
+
+                <span class="span1">current speciality</span>
+                <div class="current-column fixed-div" id="speciality">
+                  <ul>
+                    <!-- <li class="remove"><a href="#" id="remove-button1">remove</a></li>-->
+                    <%if f.object.specialities.empty?%>
+                           No Records Found
+                    <%else%>  
+                        <%f.object.specialities.each do|i|%>
+                        <div id=<%=i.id%>>
+                        <%=i.skill%>
+                        <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_speciality(this.id)"%><br/>
+                        </div>
+                        <%end%>
+                    <%end%>
+                  </ul>
+                </div>
+            </div>
+ <%= stylesheet_link_tag "select2", media: "all", "data-turbolinks-track" => true %>
+<script type="text/javascript">
+    $(document).ready(function() { 
+    $("#e1").select2(); 
+    $("#e2").select2();
+    $("#e3").select2();
+    $("#e4").select2(); 
+    $("#patient_con").select2(); 
+    $("#e5").select2(); 
+    });
+  
+    // removing speciality
+    function remove_provider_speciality(val){
+           // alert(val);
+        $.ajax({
+          url: "/remove_provider_speciality",
+          type: "GET",
+          data: {id: val},
+          success:  function(){
+             $("#"+val).css({"display":"none"});
+            //alert("function remove called");
+          }
+        });
+    }
+
+    //adding speciality via ajax
+    function add_provider_speciality(){
+       var skill = document.getElementById('e1').value;
+       var param = {'skill':skill}
+      if(skill==null || skill==""){
+        alert("Select proper value in the dropdown");
+      }
+      else
+      {
+        $.ajax({
+          url: "/add_provider_speciality",
+          type: "POST",
+          data: param,
+          success: function(b){
+                    $('#e4').value='';
+                    alert("Speciality added");
+                  }
+        });
+      }
+    }
+    </script>
+
+
+
+
+                

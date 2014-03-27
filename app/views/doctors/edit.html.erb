@@ -1,2 +1,57 @@
-<h1>Doctors#edit</h1>
-<p>Find me in app/views/doctors/edit.html.erb</p>
+     
+<div class="content_section">
+           <div class="content_article">
+            <h2><%= @provider.fname %></h2>
+            <h3>(member id  <%= @provider.id %>)</h3> </div>
+          <!-- content_article ends-->
+            <div class="text_area">
+            <div class="left-text-area">
+              <ul>
+                <li><%= link_to "Update profile", edit_doctor_path %></li>
+                <li><%= link_to "Add/remove provider", "#" %></li>
+                <li><%= link_to "Add/remove third party", "#" %></li>
+                <li><%= link_to "Update payment info", "#" %></li>
+              </ul>
+            </div>
+            <!-- left-text-area ends-->
+            <div class="right_text_area">
+            <%=form_for @provider, :url => doctor_path, method: :patch do |f|%>
+        					  <%= render "#{@provider.current_step}_form", :f => f %>
+          					  <%if @provider.last_step?%>
+          						  <ul class="next">
+          	              	<li>Step <%#=steps[@provider.c]%> of 6:</li>
+          	               	<%=f.submit "Submit", :class => "button"%>
+          	           </ul>
+          					  <%else%>
+          					  	<ul class="next">
+                      			<li>Step 1 of 6:</li>
+                      			<li class="next-button">
+                       			 <%=f.submit "Next", :name => "continue", :class => "button"%>
+                      			</li>
+                        </ul>
+          					 <%end%>
+				  <%end%>
+        </div>
+        <!-- right_text_area ends--> 
+      </div>
+      <!-- text_area ends--> 
+    </div>
+    <!-- content_section ends-->
+    <%= stylesheet_link_tag "select2", media: "all", "data-turbolinks-track" => true %>
+    <script type="text/javascript">
+    
+    $(document).ready(function() { 
+    $("#e1").select2(); 
+    $("#e2").select2();
+    $("#e3").select2();
+    $("#e4").select2(); 
+    $("#patient_con").select2(); 
+    $("#e5").select2(); 
+    });
+    </script>
+
+   <%#if @provider.errors.any?%>
+                      <%#@provider.errors.full_messages.each do|msg|%>
+                        <!-- <li><%#=msg%></li> -->
+                      <%#end%>
+                     <%#end%>

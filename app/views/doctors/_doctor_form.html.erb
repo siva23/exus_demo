@@ -1,0 +1,32 @@
+<table>
+    <tr>
+      <td><%=f.text_field :lname, :placeholder => "Last Name", :class => "input-1"%></td>
+      <td><%=f.text_field :fname, :placeholder => "First Name", :class => "input-1"%></td>
+    </tr>
+
+    <tr>
+      <td><%=f.text_field :clname, :placeholder => "Clinic Name", :class => "input-1"%></td>
+      <td><%=f.select :sex, options_for_select(["Male", "Female"]), :placeholder => "sex", :class => "select-model-1"%></td>
+    </tr>
+
+    <tr>
+      <td><%=f.text_field :clstadd, :placeholder => "Clinic Street Address", :class => "input-1"%></td>
+      <td><%=f.text_field :clcity, :placeholder => "Clinic City", :class => "input-1"%></td>
+    </tr>
+
+    <tr>
+      <td><%=f.text_field :state, :placeholder => "Clinic State", :class => "input-1"%></td>
+      <td><%=f.text_field :zip, :placeholder => "Clinic Zip", :class => "input-1"%></td>
+    </tr>
+
+    <tr>
+      <td><%=f.date_field :dob, :placeholder => "Birthdate 0000/00/00", :class => "input-1"%></td>
+      <td><%=f.text_field :clnum, :placeholder => "Clinic # 000-000-000", :class => "input-1"%></td>
+    </tr>
+
+    <tr>
+      <td><%=f.select :con, options_for_select(["India", "United States of America", "China", "United Kingdom"]), :placeholder => "Country", :class => "select-model-1"%></td>
+      <td></td>
+    </tr>
+
+</table>

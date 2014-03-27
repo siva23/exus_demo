@@ -1,0 +1,10 @@
+<div class="current-column fixed-div" id="edudetails">
+    <ul> 
+        <%@provider.edudetails.each do|i|%>
+            <div id=<%=i.id%>>
+            <%=i.clgname%>
+            <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_edudetail(this.id)"%><br/>
+            </div>
+        <%end%>
+    </ul>
+  </div>

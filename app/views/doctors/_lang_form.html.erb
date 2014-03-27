@@ -1,0 +1,11 @@
+<div class="current-column fixed-div" id="language">
+    <ul>
+      <!-- <li class="remove"><a href="#" id="remove-button1">remove</a></li>--> 
+      <%@provider.languages.each do|i|%>
+          <div id=<%=i.id%>>
+            <%=i.name%>
+            <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_language(this.id)"%><br/>
+          </div>
+      <%end%>
+    </ul>
+</div>

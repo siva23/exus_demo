@@ -1,7 +1,7 @@
 class Patient < ActiveRecord::Base
 	has_many :relations
 	has_many :relatives, :through => :relations
-	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+	has_attached_file :image, :styles => { :medium => "35x35>", :thumb => "100x100>" }
 	belongs_to :user
 	accepts_nested_attributes_for :user
 	has_many :insurances, as: :insurable, :dependent => :destroy

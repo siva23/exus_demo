@@ -1,0 +1,63 @@
+ <table>
+    <tr>
+      <td><select id="e1" class="select-model-7">
+          <option value="">input education & training facility</option>
+          <option value="lamna linda school of medicine">lamna linda school of medicine</option>
+          <option value="sranford university school of medicine">sranford university school of medicine</option>
+          <option value="lamna linda school of medicine">lamna linda school of medicine</option>
+          <option value="sranford university school of medicine">sranford university school of medicine</option>
+          <option value="lamna linda school of medicine">lamna linda school of medicine</option>
+          <option value="sranford university school of medicine">sranford university school of medicine</option>
+        </select></td>
+      <td><input type="text" placeholder="year" class="input-6" id="edu_year"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input class="button-2" type="button" value="add facility" onclick="add_provider_edudetail()"></td>
+    </tr>
+  </table>
+  <span class="span1">current education & training</span>
+  <div class="current-column fixed-div" id="edudetails">
+    <ul>
+      <%if f.object.edudetails.empty?%>
+            No Records Found
+        <%else%>  
+            <%f.object.edudetails.each do|i|%>
+                <div id=<%=i.id%>>
+                <%=i.clgname%>
+                <%=link_to "remove", "#", :id => i.id, :onclick => "remove_provider_edudetail(this.id)"%><br/>
+                </div>
+            <%end%>
+        <%end%>
+    </ul>
+</div>
+
+  <script>
+  function add_provider_edudetail(){
+     var year = document.getElementById('edu_year').value;
+     var clgname = document.getElementById('e1').value;
+     if(year==null || year=="" || clgname==null || clgname==""){
+         alert("Fields should not be empty");
+       }
+      else{
+            $.ajax({
+              type: 'GET',
+              url: '/add_provider_edudetail',
+              data:{'year':year, 'clgname':clgname},
+              success: function(n){
+                alert("certification added successfully");
+              }
+            });
+      }
+  }
+
+  function remove_provider_edudetail(val){
+    $.ajax({
+      type: 'GET',
+      url: '/remove_provider_edudetail',
+      data: {id: val},
+      success: function(n){
+        $('#'+val).css({"display":"none"});
+      }
+    });
+  }
+  </script>
