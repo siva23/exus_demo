@@ -1,15 +1,15 @@
 <table>
     <tr>
-      <td><%#=@member.fname.capitalize%></td>
-      <td></td>
+      <td><%=session[:patient_params]["fname"]%></td>
+      <td><%=session[:patient_params]["lname"]%></td>
     </tr>
    <tr>
-   	  <td>City:<%=@member.city%></td>
-      <td>Street Address:<%=@member.stadd%></td>
+   	  <td>City: <%=session[:patient_params]["city"]%></td>
+      <td>Street Address:<%=session[:patient_params]["stadd"]%></td>
     </tr>
     <tr>
-      <td>Date-of-Birth:<%=@member.dob%></td>
-      <td>State:<%=@member.state%></td>
+      <td>Date-of-Birth:<%=session[:patient_params]["city"]%></td>
+      <td>State:<%=session[:patient_params]["state"]%></td>
     </tr>
     <tr>
       <td colspan="2">

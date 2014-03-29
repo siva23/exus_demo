@@ -1,6 +1,7 @@
 class RelationshipsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_user, :only => [:create, :destroy, :redir_relative_index]
+
   def create
     @member.relations.build(:relative_id => params[:id])
     @member.save
@@ -31,10 +32,17 @@ class RelationshipsController < ApplicationController
   end
 
   def redir_relative_index
+
+  end
+
+  def invite_third_party
+
   end
 
 end
+
 private
+
 def set_user
   @member = Patient.find_by(:user_id => current_user.id)
 end

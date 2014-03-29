@@ -26,6 +26,7 @@ Exusmed::Application.routes.draw do
   match '/remove_provider_language' => 'doctors#remove_language', :via => :get
   match '/add_provider_edudetail' => 'doctors#add_provider_edudetail', :via => :get
   match '/remove_provider_edudetail' => 'doctors#remove_provider_edudetail', :via => :get
+  match '/invite_third_paty' => 'relationships#invite_third_party', :via => :get
 
   get 'home/index'
   get 'patients_providers/show_provider'
@@ -36,10 +37,11 @@ Exusmed::Application.routes.draw do
   ActiveAdmin.routes(self)
   
   resources :doctors
+  resources :appointments, :only => :index
   resources :patients_providers, :only => :index
 
   resources :members do
-    resources :insurances,:appointments
+    resources :insurances
   end
 
   root 'home#index'

@@ -1,0 +1,67 @@
+ <div class="content_section">
+          <div class="content_article">
+            <h2><%=@member.fname%></h2>
+            <h3>(member id  <%=@member.id%>)</h3>
+            </div>
+          <!-- content_article ends-->
+          <div class="text_area">
+            <div class="left-text-area">
+              <ul>
+                <li class="active"><%=link_to "Request Appointment", "#"%></li>
+                <li><%=link_to "cancel appointment", "#"%></li>
+                <li><%=link_to "past appointments", "#"%></li>
+                <li><%=link_to "Hospital admissions", "#"%></li>
+                <li><%=link_to "upcoming appointments", "#"%></li>
+              </ul>
+            </div>
+            <!-- left-text-area ends-->
+            <div class="right_text_area">
+              <form>
+                <table>
+                  <tr>
+                    <td><select id="e1" class="select-model-1">
+                        <option value="">select your doctor</option>
+                        <%=@member.doctors.each do|t|%>
+                          <option value=<%=t.fname%>><%=t.fname%></option>
+                        <%end%>
+                      
+                      </select></td>
+                  </tr>
+                  <tr>
+                    <td><input class="input-3" type="text" placeholder="reason for visit"></td>
+                  </tr>
+                  <tr>
+                    <td><div class="pos"><input class="input-1" id="datepicker" type="text" placeholder="22/02/2014">
+                      <label class="calender-icon"><img src="images/calender-icon.jpg" alt=""/></label></div></td>
+                  </tr>
+                </table>
+                <div class="timings">
+                  <ul>
+                    <li class="active"><a href="#">9:00 AM</a></li>
+                    <li><%=link_to "9:15 AM"%></li>
+                    <li><%=link_to "9:30 AM"%></li>
+                    <li><%=link_to "1:45 pm"%></li>
+                    <li><%=link_to "2:00 pm"%></li>
+                    <li><%=link_to "4:00 pm"%></li>
+                    <li><%=link_to "4:30 pm"%></li>
+                    <li><%=link_to "4:45 pm"%></li>
+                    <li><%=link_to "5:00 pm"%></li>
+                    <li><%=link_to "5:30 pm"%></li>
+                    <li><%=link_to "5:45 pm"%></li>
+                    <li><%=link_to "6:00 pm"%></li>
+                  </ul>
+                 
+                </div>
+                 <div class="clear"></div>
+                <ul class="confirm-btns confirm-btns-non-equal">
+                  <li>
+                    <input type="submit" value="click here to confirm">
+                  </li>
+                </ul>
+              </form>
+            </div>
+            <!-- right_text_area ends--> 
+          </div>
+          <!-- text_area ends--> 
+        </div>
+        <!-- content_section ends-->

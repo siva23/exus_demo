@@ -25,7 +25,7 @@
       <div class="payoff"><%=image_tag("payoff-img.png", :alt =>  "payoff")%></div>
       <div class="login_column">
         <ul>
-          <li><%=link_to "My appointments"%></li>
+          <li><%=link_to "My appointments", appointments_path%></li>
           <li></li>
         </ul>
         <div class="log_out"><%= link_to "Log out", destroy_user_session_path %></div>

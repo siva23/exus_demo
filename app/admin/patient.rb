@@ -67,7 +67,7 @@ ActiveAdmin.register Patient do
           @patient.con = params[:patient][:con]
           @patient.user_id = @user.id
           @patient.save(:validate => false)
-            
+          @patient.role=Payment.create
            format.html { redirect_to admin_patients_path }
         else
            format.html { super }

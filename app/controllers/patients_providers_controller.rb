@@ -38,13 +38,17 @@ class PatientsProvidersController < ApplicationController
 		@member.doctors << Doctor.find(params[:id])
 		render :text => params.inspect
 	end
+	
 	def redir_index
 	end
+	
 end
 private
+
 def setmember
 	@member = Patient.find_by(:user_id => current_user.id)
 end
+
 def check_role?
   if current_user.role == "Patient"
     true

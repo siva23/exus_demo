@@ -21,6 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+  
   def registration_params
   	params.require(:user).permit(:email, :password, :mobile, :role)
   end

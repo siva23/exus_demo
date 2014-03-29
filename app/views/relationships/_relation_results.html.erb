@@ -13,7 +13,7 @@
                   <input type="submit" value="Select">
                 </li>
                 <li>
-                  <input type="submit" value="Provider not Found" onclick="invite_relative()">
+                  <input type="submit" value="Party not Found" onclick="invite_relative()">
                 </li>
               </ul>
 </div>
@@ -24,6 +24,13 @@
         type: 'GET',
         url: '/show_member',
         data: {id: val}
+    });
+  }
+
+  function invite_relative(){
+    $.ajax({
+      type: 'GET',
+      url: '/invite_third_paty'
     });
   }
 </script>

@@ -68,7 +68,7 @@ ActiveAdmin.register Doctor do
           @doctor.clnum = params[:doctor][:clnum]
           @doctor.user_id = @user.id
           @doctor.save(:validate => false)
-            
+          @doctor.payment = Payment.create
            format.html { redirect_to admin_doctors_path }
         else
            format.html { super }
